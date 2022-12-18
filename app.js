@@ -1,6 +1,18 @@
-const title = document.getElementById("title");
-// title tag의 object내용을 가져옴
-console.dir(title);
+// const title = document.getElementById("title");
+// // title tag의 object내용을 가져옴
+// console.dir(title);
+
+// title.innerHTML = "Test title2";
+// console.log(title.childNodes);
+
+// const classTest = document.getElementsByClassName("test");
+
+// console.log(classTest);
+
+// classTest[0].innerHTML = "Test Classes";
+
+const title = document.querySelector(".test h1");
+console.log(title.innerText);
 
 // console.log(document.body);
 
