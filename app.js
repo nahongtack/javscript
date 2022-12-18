@@ -11,8 +11,12 @@
 
 // classTest[0].innerHTML = "Test Classes";
 
-const title = document.querySelector(".test h1");
-console.log(title.innerText);
+// querySelector는 CSS의 선택자와 같은 기능을 함
+// #id, .class, tag, input[name='name'] 등을 입력할 수 있음
+const title = document.querySelector("div.test:first-child h1");
+console.dir(title);
+
+title.style.color = "blue";
 
 // console.log(document.body);
 
