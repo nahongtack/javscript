@@ -1,7 +1,12 @@
-// Description: JS practice Prompt, parseInt, typeof
+// Description JS practice Prompt, parseInt, typeof
 const age = parseInt(prompt("How old are you?"));
 
 console.log(typeof age);
+
+// Process when the age entered as a prompt is not of number type
+if( isNaN(age) ){
+    prompt("This is not a number. Please enter a number.");
+}
 
 // // create calculator object
 // const calculator = {
