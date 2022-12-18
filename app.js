@@ -1,27 +1,32 @@
-// create calculator object
-const calculator = {
-    add : function (a, b) { // 더하기
-        return a + b;
-    },
-    minus : function (a, b) { // 빼기
-        return a - b;
-    },
-    multiply : function (a, b) { // 곱하기
-        return a * b;
-    },
-    divide : function (a, b) { // 나누기
-        return a / b;
-    },
-    square : function (a, b){ // 제곱
-        return a**b;
-    }
-}
+// Description: JS practice Prompt, parseInt, typeof
+const age = parseInt(prompt("How old are you?"));
 
-const firstNumber = 2;
-const secondNumber = 5;
+console.log(typeof age);
 
-calculator.add(firstNumber, secondNumber);
-calculator.minus(firstNumber, secondNumber);
-calculator.multiply(firstNumber, secondNumber);
-calculator.divide(firstNumber, secondNumber);
-calculator.square(firstNumber, secondNumber);
+// // create calculator object
+// const calculator = {
+//     add : function (a, b) { // 더하기
+//         return a + b;
+//     },
+//     minus : function (a, b) { // 빼기
+//         return a - b;
+//     },
+//     multiply : function (a, b) { // 곱하기
+//         return a * b;
+//     },
+//     divide : function (a, b) { // 나누기
+//         return a / b;
+//     },
+//     square : function (a, b){ // 제곱
+//         return a**b;
+//     }
+// }
+
+// const firstNumber = 2;
+// const secondNumber = 5;
+
+// calculator.add(firstNumber, secondNumber);
+// calculator.minus(firstNumber, secondNumber);
+// calculator.multiply(firstNumber, secondNumber);
+// calculator.divide(firstNumber, secondNumber);
+// calculator.square(firstNumber, secondNumber);
