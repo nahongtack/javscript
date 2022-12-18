@@ -16,17 +16,22 @@
 const title = document.querySelector("div.test:first-child h1");
 console.dir(title);
 
-function titleClickHandler(){
-    if(title.style.color !== "blue"){
-        title.style.color = "blue";
-    }else{
-        title.style.color = "black";
+function titleClickHandler() {
+    const currentColor = title.style.color;
+    let newColor;
+    if (currentColor !== "blue") {
+        newColor = "blue";
+    } else {
+        newColor = "black";
     }
+    title.style.color = newColor;
 }
 
 // object.addEventListener
 // event를 추가할 수 있음
 // argument : event type, event handler
+// -> title.onclick = titleClickHandler; 로 변경할 수 있음
+// addEventListener를 쓰면 나중에 removeEventListener를 쓸 수 있음
 title.addEventListener("click", titleClickHandler);
 
 // console.log(document.body);
