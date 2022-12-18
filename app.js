@@ -13,18 +13,22 @@
 
 // querySelector는 CSS의 선택자와 같은 기능을 함
 // #id, .class, tag, input[name='name'] 등을 입력할 수 있음
-const title = document.querySelector("div.test:first-child h1");
-console.dir(title);
+const h1 = document.querySelector("div.test:first-child h1");
+// console.dir(h1);
 
+// css의 active class를 toggle함
+// toggle : add, remove 기능을 함
+// 자주사용하는 기능이라 기억하도록!
 function titleClickHandler() {
-    const currentColor = title.style.color;
-    let newColor;
-    if (currentColor !== "blue") {
-        newColor = "blue";
-    } else {
-        newColor = "black";
-    }
-    title.style.color = newColor;
+    this.classList.toggle("active"); 
+    // const currentClassList = this.classList;
+    // const activeClass = "active";
+
+    // if(currentClassList.contains(activeClass)){
+    //     currentClassList.remove(activeClass);
+    // }else{
+    //     currentClassList.add(activeClass);
+    // }
 }
 
 // object.addEventListener
@@ -32,7 +36,7 @@ function titleClickHandler() {
 // argument : event type, event handler
 // -> title.onclick = titleClickHandler; 로 변경할 수 있음
 // addEventListener를 쓰면 나중에 removeEventListener를 쓸 수 있음
-title.addEventListener("click", titleClickHandler);
+h1.addEventListener("click", titleClickHandler);
 
 // console.log(document.body);
 
