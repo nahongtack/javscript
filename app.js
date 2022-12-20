@@ -1,79 +1,20 @@
-// const title = document.getElementById("title");
-// // title tag의 object내용을 가져옴
-// console.dir(title);
+const loginForm = document.querySelector("#loginForm");
+const loginInput = document.querySelector("#loginForm input");
+const contentDiv = document.querySelector(".content");
 
-// title.innerHTML = "Test title2";
-// console.log(title.childNodes);
+const HIDDEN_CLASS_NAME = "hidden"; // class 이름을 변수로 저장
 
-// const classTest = document.getElementsByClassName("test");
+// loginForm submit event
+onLoginSubmit = function (event) {
+    event.preventDefault(); // submit event의 기본 동작을 막음 -> 브라우저가 새로고침되는 것을 막음
 
-// console.log(classTest);
+    loginForm.classList.add(HIDDEN_CLASS_NAME); // loginForm을 숨김
 
-// classTest[0].innerHTML = "Test Classes";
+    const userNm = loginInput.value; // loginInput의 value를 userNm에 저장
+    contentDiv.innerText = `Hello! ${userNm}`; // 백틱 + ${} 사용으로 변수값을 문자열에 삽입
+    //contentDiv.innerText = "Hello! " + userNm.value;
+    contentDiv.classList.remove(HIDDEN_CLASS_NAME); // contentDiv를 보여줌
+};
 
-// querySelector는 CSS의 선택자와 같은 기능을 함
-// #id, .class, tag, input[name='name'] 등을 입력할 수 있음
-const h1 = document.querySelector("div.test:first-child h1");
-// console.dir(h1);
-
-// css의 active class를 toggle함
-// toggle : add, remove 기능을 함
-// 자주사용하는 기능이라 기억하도록!
-function titleClickHandler() {
-    this.classList.toggle("active"); 
-    // const currentClassList = this.classList;
-    // const activeClass = "active";
-
-    // if(currentClassList.contains(activeClass)){
-    //     currentClassList.remove(activeClass);
-    // }else{
-    //     currentClassList.add(activeClass);
-    // }
-}
-
-// object.addEventListener
-// event를 추가할 수 있음
-// argument : event type, event handler
-// -> title.onclick = titleClickHandler; 로 변경할 수 있음
-// addEventListener를 쓰면 나중에 removeEventListener를 쓸 수 있음
-h1.addEventListener("click", titleClickHandler);
-
-// console.log(document.body);
-
-// // Description JS practice Prompt, parseInt, typeof
-// const age = parseInt(prompt("How old are you?"));
-
-// console.log(typeof age);
-
-// // Process when the age entered as a prompt is not of number type
-// if( isNaN(age) ){
-//     prompt("This is not a number. Please enter a number.");
-// }
-
-// // create calculator object
-// const calculator = {
-//     add : function (a, b) { // 더하기
-//         return a + b;
-//     },
-//     minus : function (a, b) { // 빼기
-//         return a - b;
-//     },
-//     multiply : function (a, b) { // 곱하기
-//         return a * b;
-//     },
-//     divide : function (a, b) { // 나누기
-//         return a / b;
-//     },
-//     square : function (a, b){ // 제곱
-//         return a**b;
-//     }
-// }
-
-// const firstNumber = 2;
-// const secondNumber = 5;
-
-// calculator.add(firstNumber, secondNumber);
-// calculator.minus(firstNumber, secondNumber);
-// calculator.multiply(firstNumber, secondNumber);
-// calculator.divide(firstNumber, secondNumber);
-// calculator.square(firstNumber, secondNumber);
+// loginForm submit event listener
+loginForm.addEventListener("submit", onLoginSubmit);
