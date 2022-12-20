@@ -3,6 +3,7 @@ const loginInput = document.querySelector("#loginForm input");
 const contentDiv = document.querySelector(".content");
 
 const HIDDEN_CLASS_NAME = "hidden"; // class 이름을 변수로 저장
+const USER_NM_KEY = "userNm"; // localStorage key를 변수로 저장
 
 // loginForm submit event
 onLoginSubmit = function (event) {
@@ -11,10 +12,24 @@ onLoginSubmit = function (event) {
     loginForm.classList.add(HIDDEN_CLASS_NAME); // loginForm을 숨김
 
     const userNm = loginInput.value; // loginInput의 value를 userNm에 저장
-    contentDiv.innerText = `Hello! ${userNm}`; // 백틱 + ${} 사용으로 변수값을 문자열에 삽입
     //contentDiv.innerText = "Hello! " + userNm.value;
-    contentDiv.classList.remove(HIDDEN_CLASS_NAME); // contentDiv를 보여줌
+    localStorage.setItem(USER_NM_KEY, userNm); // localStorage에 userNm을 저장
+
+    drawingContent(userNm); // contentDiv를 그려내고, use name을 삽입함
 };
 
-// loginForm submit event listener
-loginForm.addEventListener("submit", onLoginSubmit);
+// contentDiv를 그려내고, use name을 삽입함
+function drawingContent(userNm) {
+    contentDiv.innerText = `Hello! ${userNm}`; // 백틱 + ${} 사용으로 변수값을 문자열에 삽입
+    contentDiv.classList.remove(HIDDEN_CLASS_NAME); // contentDiv를 보여줌
+}
+
+const saveUserNm = localStorage.getItem(USER_NM_KEY); // localStorage에서 userNm을 가져옴
+
+// localStorage에 userNm이 있으면 loginForm을 숨기고 contentDiv를 보여줌
+if (saveUserNm === null) {
+    loginForm.classList.remove(HIDDEN_CLASS_NAME); // loginForm을 보여줌
+    loginForm.addEventListener("submit", onLoginSubmit); // loginForm submit event listener
+} else {
+    drawingContent(saveUserNm); // contentDiv를 그려내고, use name을 삽입함
+}
